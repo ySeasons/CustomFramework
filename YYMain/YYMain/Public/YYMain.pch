@@ -1,0 +1,56 @@
+//
+//  YYMain.pch
+//  YYMain
+//
+//  Created by Seasons on 2020/12/10.
+//
+
+#ifndef YYMain_pch
+#define YYMain_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import <SVProgressHUD.h>
+#import <AFNetworking.h>
+
+
+#import <YYSubFramework/YYSubOpen.h>
+
+
+#import "UIColor+YUIColor.h"
+#import "UIView+YUIView.h"
+#import "UIDevice+YUIDevice.h"
+
+
+//宏定义Category
+#define KScreenWidth [UIScreen mainScreen].bounds.size.width
+#define KScreenHeight [UIScreen mainScreen].bounds.size.height
+//主窗体
+#define KScreenWindow [UIApplication sharedApplication].keyWindow
+
+//导航条
+#define NAVIGATION_HEIGHT ((K_iPhone_58 || K_iPhone_61 || K_iPhone_65) ? 88.0 : 64.0)
+#define TABBAR_HEIGHT ((K_iPhone_58 || K_iPhone_61 || K_iPhone_65) ? 83.0 : 49.0)
+
+#define K_iPhone_HighVersion ((K_iPhone_X==YES || K_iPhone_XR==YES || K_iPhone_XS==YES || K_iPhone_XSMAX==YES) ? YES : NO)
+//判断iphone X设备
+#define K_iPhone_58 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+#define K_iPhone_61 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size) : NO)
+#define K_iPhone_65 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) : NO)
+
+
+
+
+
+
+// OC 适配 // 计算比例
+#define Auto(m) m*[UIDevice deviceScale]
+
+// 字体
+#define Font(x) [UIFont fontWithName:@"ArialMT" size:Auto(x)]
+#define FontBold(x) [UIFont fontWithName:@"Arial-BoldMT" size:Auto(x)]
+
+
+
+#endif /* YYMain_pch */
